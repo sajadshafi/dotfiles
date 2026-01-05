@@ -14,6 +14,6 @@ return {
                 },
                 excluded_filetypes = { 'markdown', 'txt', 'alpha' },
             }
-        end
+        end,
     },
 }

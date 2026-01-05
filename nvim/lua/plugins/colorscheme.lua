@@ -8,9 +8,15 @@ end
 
 return {
     {
-        "sajadshafi/nebula.nvim",
+
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {},
+
+        -- "sajadshafi/nebula.nvim",
         config = function()
-            vim.cmd.colorscheme("nebula")
+            vim.cmd.colorscheme("tokyonight")
             enable_transparency()
 
             -- Example: enable transparency

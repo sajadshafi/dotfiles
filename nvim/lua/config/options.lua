@@ -51,6 +51,17 @@ set.cursorline = false
 -- Scrolloff - Minimum number of screen lines to keep above and below the cursor
 set.scrolloff = 10
 
+
+-- Enable the fold column (optional, shows fold indicators)
+vim.opt.foldcolumn = '1'
+-- Set the default fold method (e.g., 'indent', 'syntax', 'manual')
+vim.opt.foldmethod = 'indent'
+-- Set the default fold level (0 closes all, high number opens all)
+vim.opt.foldlevel = 99
+-- Enable folding by default
+vim.opt.foldenable = true
+
+
 vim.api.nvim_create_autocmd('TextYankPost', {
     desc = 'Highlight when yanking (copying) text',
     group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),

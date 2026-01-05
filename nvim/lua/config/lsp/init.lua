@@ -9,6 +9,8 @@ vim.lsp.enable('gopls')
 vim.lsp.enable('cssls')
 vim.lsp.enable('html')
 vim.lsp.enable('jsonls')
+vim.lsp.enable('svelte')
+vim.lsp.enable('tailwindcss')
 
 vim.lsp.config('*', {
     root_markers = { '.git' },
