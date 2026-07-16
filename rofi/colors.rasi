@@ -2,16 +2,19 @@
 /* Author: Sajad Shafi */
 
 * {
-    black:		#000000;
+    /* Everforest Dark (medium) */
+    black:		#232a2e;
     white:		#FFFFFF;
-    background:		#222436; 
-    foreground:		#F8F8F2;
-    primary:		#ff014f;
-    primaryLight:	#D3C6AA;
-    red:		#C42412;
+    background:		#2d353b;
+    background-alt:	#343f44;
+    foreground:		#d3c6aa;
+    primary:		#a7c080;
+    primaryLight:	#83c092;
+    onPrimary:		#2d353b;
+    red:		#e67e80;
     transparent:	#00000000;
-    transparentBg:	#2E3440E2;
-    urgent:		#E06C75FF;
+    transparentBg:	#232a2eE6;
+    urgent:		#e67e80FF;
 }
 
 @import "~/.config/rofi/app_launcher.rasi"

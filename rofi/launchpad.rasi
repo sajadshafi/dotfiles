@@ -16,19 +16,21 @@ configuration {
 
 * {
     font: "JetBrainsMono Nerd Font 10";
-    
-    black:		#000000;
+
+    /* Everforest Dark (medium) */
+    black:		#232a2e;
     white:		#FFFFFF;
-    background:		#444444; 
-    foreground:		#F8F8F2;
-    primary:		#A6AD7F;
-    primaryLight:	#D3C6AA;
-    red:		#C42412;
+    background:		#343f44;
+    foreground:		#d3c6aa;
+    primary:		#a7c080;
+    primaryLight:	#83c092;
+    onPrimary:		#2d353b;
+    red:		#e67e80;
     transparent:	#00000000;
-    transparentBg:	#2E3440E2;
-    transparentBg1:	#242424B2;
-    urgent:		#E06C75FF;
-    
+    transparentBg:	#2d353bE6;
+    overlayBg:		#232a2eD9;
+    urgent:		#e67e80;
+
     background-color: transparent;
     text-color:       @foreground;
     padding:          0px;
@@ -39,7 +41,7 @@ window {
     fullscreen: true;
     padding: 8em;
     border: 0;
-    background-color: @transparentBg1;
+    background-color: @overlayBg;
 }
 
 mainbox {
@@ -58,12 +60,11 @@ textbox-prompt-colon {
     width:		65px;
     height:		40px;
     expand:             false;
-    str:                "";
+    str:                "";
     padding:		15px 20px;
-    border-radius:      5px 0px 0px 25px;
+    border-radius:      25px 0px 0px 25px;
     background-color:   @primary;
-    text-color:         @foreground;
-
+    text-color:         @onPrimary;
 }
 
 entry {
@@ -71,12 +72,12 @@ entry {
     border:		2px;
     margin:		0 0 0 -6px;
     padding:		18px 20px;
-    background-color:	@background;
+    background-color:	@transparentBg;
     border-color:	@primary;
-    border-radius:	0px 25px 5px 0px;
+    border-radius:	0px 25px 25px 0px;
     placeholder:        "Search";
     text-color:		@foreground;
-    placeholder-color:  @primary;
+    placeholder-color:  @primaryLight;
 }
 
 listview {
@@ -84,6 +85,7 @@ listview {
   spacing:  48px;
   columns:  6;
   fixed-columns: true;
+  background-color: transparent;
 }
 
 element, element-text, element-icon {
@@ -94,19 +96,48 @@ element {
     padding:		12px;
     spacing:		4px;
     orientation:	vertical;
+    border-radius:	18px;
     background-color:	transparent;
-    border-radius:	25px;
+    text-color:		@foreground;
 }
 
-element selected {
-  background-color: @transparentBg;
+/* Explicit per-state rules so rofi's default theme can't paint
+   alternate rows a light (unreadable) colour. */
+element normal.normal,
+element alternate.normal,
+element normal.active,
+element alternate.active {
+    background-color:	transparent;
+    text-color:		@foreground;
+}
+
+element normal.urgent,
+element alternate.urgent {
+    background-color:	transparent;
+    text-color:		@red;
+}
+
+element selected.normal,
+element selected.active {
+    background-color:	@transparentBg;
+    text-color:		@foreground;
+    border:		2px;
+    border-color:	@primary;
+}
+
+element selected.urgent {
+    background-color:	@red;
+    text-color:		@onPrimary;
 }
 
 element-icon {
   size: 4em;
   horizontal-align: 0.5;
+  background-color: transparent;
 }
 
 element-text {
   horizontal-align: 0.5;
+  background-color: transparent;
+  text-color: inherit;
 }
