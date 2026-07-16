@@ -19,5 +19,19 @@ polybar i3_sysdetails 2>&1 | tee -a /tmp/i3_sysdetails.log & disown
 polybar i3_cava 2>&1 | tee -a /tmp/i3_powermenu_bar.log & disown
 polybar i3_powermenu_bar 2>&1 | tee -a /tmp/i3_cava.log & disown
 
+# Cava: show on HDMI-0 if connected, otherwise fall back to primary
+if xrandr --query | grep -q "HDMI-0 connected"; then
+    MONITOR=HDMI-0 polybar hdmi_cava 2>&1 | tee -a /tmp/hdmi_cava.log & disown
+    MONITOR=HDMI-0 polybar i3_workspaces_mon_2 2>&1 | tee -a /tmp/i3_workspaces_mon_2.log & disown
+    MONITOR=HDMI-0 polybar i3_heart_second 2>&1 | tee -a /tmp/i3_heart_second.log & disown
+else
+    MONITOR=DP-4 polybar i3_cava 2>&1 | tee -a /tmp/i3_cava.log & disown
+fi
+
+if xrandr --query | grep -q "HDMI-0 connected"; then
+    MONITOR=HDMI-0 polybar hdmi_clock 2>&1 | tee -a /tmp/hdmi_clock.log & disown
+    MONITOR=HDMI-0 polybar hdmi_media 2>&1 | tee -a /tmp/hdmi_media.log & disown
+fi
+
 
 echo "Bars launched..."

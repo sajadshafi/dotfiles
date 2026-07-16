@@ -11,6 +11,7 @@ vim.lsp.enable('html')
 vim.lsp.enable('jsonls')
 vim.lsp.enable('svelte')
 vim.lsp.enable('tailwindcss')
+vim.lsp.enable('clangd')
 
 vim.lsp.config('*', {
     root_markers = { '.git' },
